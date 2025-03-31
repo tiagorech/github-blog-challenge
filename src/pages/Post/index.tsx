@@ -6,6 +6,7 @@ import { api } from "../../lib/axios";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useProfile } from "../../hooks/useProfile";
+import ReactMarkdown from "react-markdown";
 
 interface PostInfo {
     title: string
@@ -24,7 +25,7 @@ export function Post() {
     useEffect(() => {
         async function fetchPost() {
             try {
-                const response = await api.get(`repos/rocketseat-education/reactjs-github-blog-challenge/issues/${id}`)
+                const response = await api.get(`repos/tiagorech/github-blog-challenge/issues/${id}`)
                 const {
                     title,
                     comments,
@@ -91,7 +92,7 @@ export function Post() {
             </PostContainer>
 
             <PostInfoContent>
-                <p>{postInfo?.body}</p>
+                <ReactMarkdown>{postInfo?.body}</ReactMarkdown>
             </PostInfoContent>
         </Container>
     )

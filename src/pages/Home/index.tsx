@@ -18,7 +18,7 @@ export function Home() {
     async function fetchPosts(query?: string | null) {
         try {
             const response = await api.get(
-                `search/issues?q=${query}%20repo:rocketseat-education/reactjs-github-blog-challenge`
+                `search/issues?q=${query}%20repo:tiagorech/github-blog-challenge`
             )
             setPosts(response.data.items)
         } catch (error) {
